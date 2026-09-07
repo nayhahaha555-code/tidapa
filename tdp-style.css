@@ -1,0 +1,144 @@
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #444;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: #218838;
+    font-weight: bold;
+}
+
+/* =========================
+   ปุ่มเมนูมือถือ
+========================= */
+
+.menu-toggle {
+    display: none;
+    background: #218838;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: row;
+        padding: 15px 5%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    /* ปุ่ม ☰ แสดงบนมือถือ */
+    .menu-toggle {
+        display: block;
+        position: relative;
+        z-index: 1001;
+    }
+
+    /* แถบเมนู */
+    .menu {
+        position: fixed;
+
+        top: 0;
+        right: -260px;
+
+        width: 250px;
+        height: 100vh;
+
+        background: white;
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 80px 25px 25px;
+
+        gap: 0;
+
+        box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+
+        transition: right 0.3s ease;
+
+        z-index: 999;
+    }
+
+    /* เปิดเมนู */
+    .menu.active {
+        right: 0;
+    }
+
+    /* ปุ่มเมนู */
+    .menu a {
+        padding: 18px 10px;
+
+        border-bottom: 1px solid #eee;
+
+        font-size: 18px;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+        color: #218838;
+    }
+
+    /* =========================
+       HOME
+    ========================= */
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .main-btn {
+        text-align: center;
+    }
+
+    /* =========================
+       POINTS
+    ========================= */
+
+    .header h1 {
+        font-size: 30px;
+    }
+
+    .waste-grid,
+    .reward-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .point-box {
+        padding: 20px;
+    }
+
+    .point-box h2 {
+        font-size: 30px;
+    }
+}

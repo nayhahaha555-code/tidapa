@@ -1,35 +1,491 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, "Noto Sans Thai", sans-serif;
+    background: #f1f8f4;
+    color: #333;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    height: 70px;
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #176b36;
+}
+
 .menu {
     display: flex;
-    gap: 25px;
+    align-items: center;
+    gap: 8px;
 }
 
 .menu a {
     text-decoration: none;
-    color: #444;
+    color: #555;
+
     font-size: 16px;
+    font-weight: bold;
+
+    padding: 11px 18px;
+    border-radius: 12px;
+
+    transition: 0.25s;
+}
+
+.menu a:hover {
+    color: #176b36;
+    background: #eaf7ee;
+    transform: translateY(-2px);
+}
+
+.menu a.active {
+    color: white;
+    background: linear-gradient(135deg,#218838,#2e9d52);
+    box-shadow: 0 5px 15px rgba(33,136,56,0.25);
+}
+
+.close,
+.mobile-menu {
+    display: none;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.hero {
+    min-height: 70vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 60px 20px;
+
+    background:
+        linear-gradient(
+            rgba(241,248,244,0.92),
+            rgba(241,248,244,0.92)
+        );
+}
+
+.hero-content h1 {
+    font-size: 55px;
+    line-height: 1.2;
+    color: #176b36;
+}
+
+.hero-content h1 span {
+    color: #218838;
+}
+
+.hero-content p {
+    margin: 20px 0 30px;
+    font-size: 18px;
+    color: #666;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.main-btn,
+.sub-btn {
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.main-btn {
+    color: white;
+    background: linear-gradient(135deg,#218838,#2e9d52);
+    box-shadow: 0 7px 20px rgba(33,136,56,0.25);
+}
+
+.main-btn:hover {
+    transform: translateY(-3px);
+}
+
+.sub-btn {
+    color: #218838;
+    background: white;
+    border: 2px solid #218838;
+}
+
+.sub-btn:hover {
+    background: #218838;
+    color: white;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.info-card {
+    padding: 30px;
+    text-align: center;
+
+    background: white;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+
     transition: 0.3s;
 }
 
-.menu a:hover,
-.menu a.active {
+.info-card:hover {
+    transform: translateY(-6px);
+}
+
+.icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    color: #176b36;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: #777;
+}
+
+
+/* =========================
+   HOW
+========================= */
+
+.how {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.how h2,
+.rewards h2 {
+    color: #176b36;
+    margin-bottom: 35px;
+}
+
+.steps {
+    max-width: 1000px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.step {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+
+    margin: auto auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+    background: #218838;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.step h3 {
+    color: #176b36;
+    margin-bottom: 8px;
+}
+
+.step p {
+    color: #777;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+    padding: 55px 20px 30px;
+}
+
+.header h1 {
+    color: #176b36;
+    font-size: 38px;
+}
+
+.header p {
+    margin-top: 10px;
+    color: #777;
+}
+
+
+/* =========================
+   POINT BOX
+========================= */
+
+.point-box {
+    width: min(500px, 90%);
+    margin: 20px auto 50px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: linear-gradient(135deg,#176b36,#2e9d52);
+
+    color: white;
+
+    border-radius: 25px;
+
+    box-shadow: 0 10px 30px rgba(23,107,54,0.25);
+}
+
+.point-box p {
+    font-size: 18px;
+}
+
+.point-box h2 {
+    font-size: 48px;
+    margin: 5px 0;
+}
+
+.point-box span {
+    opacity: 0.9;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: min(1100px, 90%);
+    margin: auto;
+    padding-bottom: 70px;
+}
+
+.section-title {
+    text-align: center;
+    color: #176b36;
+    margin: 40px 0 25px;
+}
+
+
+/* =========================
+   WASTE
+========================= */
+
+.waste-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.waste-card {
+    background: white;
+    padding: 25px;
+    text-align: center;
+
+    border-radius: 18px;
+
+    box-shadow: 0 7px 20px rgba(0,0,0,0.06);
+
+    transition: 0.3s;
+}
+
+.waste-card:hover {
+    transform: translateY(-5px);
+}
+
+.waste-icon {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.waste-card h3 {
+    color: #176b36;
+    margin-bottom: 8px;
+}
+
+.waste-card p {
     color: #218838;
     font-weight: bold;
 }
 
+
 /* =========================
-   ปุ่มเมนูมือถือ
+   REWARD
 ========================= */
 
-.menu-toggle {
-    display: none;
-    background: #218838;
-    color: white;
+.rewards {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.reward-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.reward-card {
+    background: white;
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 7px 20px rgba(0,0,0,0.06);
+
+    transition: 0.3s;
+}
+
+.reward-card:hover {
+    transform: translateY(-5px);
+}
+
+.reward-icon {
+    font-size: 50px;
+    margin-bottom: 12px;
+}
+
+.reward-card h3 {
+    color: #176b36;
+    margin-bottom: 8px;
+}
+
+.reward-card p {
+    color: #218838;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.reward-card button,
+.reward-btn {
+    display: inline-block;
+
     border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 24px;
+    text-decoration: none;
+
+    padding: 10px 18px;
+
+    border-radius: 10px;
+
+    color: white;
+    background: #218838;
+
+    font-weight: bold;
+
     cursor: pointer;
 }
+
+.reward-card button:hover,
+.reward-btn:hover {
+    background: #176b36;
+}
+
+.disabled {
+    opacity: 0.55;
+}
+
+.disabled button {
+    background: #999;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 25px;
+    text-align: center;
+
+    background: #176b36;
+    color: white;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    .waste-grid,
+    .reward-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .info,
+    .steps {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+}
+
 
 /* =========================
    MOBILE
@@ -38,75 +494,115 @@
 @media (max-width: 700px) {
 
     .navbar {
-        flex-direction: row;
-        padding: 15px 5%;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+        height: 65px;
+        padding: 0 5%;
     }
 
     .logo {
         font-size: 20px;
     }
 
-    /* ปุ่ม ☰ แสดงบนมือถือ */
-    .menu-toggle {
+    .mobile-menu {
         display: block;
-        position: relative;
-        z-index: 1001;
+        z-index: 1002;
     }
 
-    /* แถบเมนู */
+    .hamburger {
+        display: flex;
+
+        width: 44px;
+        height: 44px;
+
+        align-items: center;
+        justify-content: center;
+
+        text-decoration: none;
+
+        color: white;
+        background: #218838;
+
+        border-radius: 12px;
+
+        font-size: 23px;
+
+        box-shadow: 0 5px 15px rgba(33,136,56,0.25);
+    }
+
     .menu {
         position: fixed;
 
         top: 0;
-        right: -260px;
+        right: -290px;
 
-        width: 250px;
+        width: 270px;
         height: 100vh;
 
-        background: white;
+        padding: 80px 20px 30px;
 
         display: flex;
         flex-direction: column;
+        align-items: stretch;
 
-        padding: 80px 25px 25px;
+        gap: 8px;
 
-        gap: 0;
+        background: rgba(255,255,255,0.98);
+        box-shadow: -8px 0 30px rgba(0,0,0,0.12);
 
-        box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+        transition: 0.35s;
 
-        transition: right 0.3s ease;
-
-        z-index: 999;
+        z-index: 1001;
     }
 
     /* เปิดเมนู */
-    .menu.active {
+
+    .menu:target {
         right: 0;
     }
 
-    /* ปุ่มเมนู */
+    .menu .close {
+        display: flex;
+
+        position: absolute;
+
+        top: 20px;
+        right: 20px;
+
+        width: 40px;
+        height: 40px;
+
+        align-items: center;
+        justify-content: center;
+
+        text-decoration: none;
+
+        color: #176b36;
+        background: #eaf7ee;
+
+        border-radius: 10px;
+
+        font-size: 20px;
+    }
+
     .menu a {
-        padding: 18px 10px;
+        width: 100%;
+        padding: 16px;
 
-        border-bottom: 1px solid #eee;
+        border-radius: 12px;
 
-        font-size: 18px;
+        font-size: 17px;
     }
 
-    .menu a:hover,
-    .menu a.active {
-        color: #218838;
+    .menu a:hover {
+        transform: translateX(5px);
     }
 
-    /* =========================
-       HOME
-    ========================= */
+    .hero {
+        min-height: 60vh;
+        padding: 50px 20px;
+    }
 
     .hero-content h1 {
-        font-size: 34px;
+        font-size: 38px;
     }
 
     .hero-content p {
@@ -117,28 +613,25 @@
         flex-direction: column;
     }
 
-    .main-btn {
-        text-align: center;
+    .main-btn,
+    .sub-btn {
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    /* =========================
-       POINTS
-    ========================= */
-
-    .header h1 {
-        font-size: 30px;
-    }
-
+    .info,
+    .steps,
     .waste-grid,
     .reward-grid {
         grid-template-columns: 1fr;
     }
 
-    .point-box {
-        padding: 20px;
+    .header h1 {
+        font-size: 30px;
     }
 
     .point-box h2 {
-        font-size: 30px;
+        font-size: 38px;
     }
 }
+

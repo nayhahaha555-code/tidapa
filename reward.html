@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>แลกของรางวัล | Green Points</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, "Noto Sans Thai", sans-serif;
+            background: #f1f8f4;
+            color: #222;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            padding: 18px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: white;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #218838;
+        }
+
+
+        .menu {
+            display: flex;
+            gap: 25px;
+        }
+
+
+        .menu a {
+            text-decoration: none;
+            color: #444;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+
+        .menu a:hover,
+        .menu a.active {
+            color: #218838;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+
+        .header h1 {
+            font-size: 38px;
+            color: #176b36;
+            margin-bottom: 15px;
+        }
+
+
+        .header p {
+            font-size: 18px;
+            color: #666;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           POINT BOX
+        ========================= */
+
+        .point-box {
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 25px 35px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 25px;
+
+            margin-bottom: 45px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+
+            border-left: 6px solid #2e9d52;
+        }
+
+
+        .point-icon {
+            width: 75px;
+            height: 75px;
+
+            border-radius: 50%;
+
+            background: #e5f7ea;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 38px;
+        }
+
+
+        .point-box p {
+            color: #777;
+            margin-bottom: 5px;
+        }
+
+
+        .point-box h2 {
+            font-size: 36px;
+            color: #238b45;
+        }
+
+
+        .point-box span {
+            font-size: 18px;
+            color: #555;
+        }
+
+
+        /* =========================
+           SECTION TITLE
+        ========================= */
+
+        .section-title {
+            color: #176b36;
+            font-size: 28px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           REWARD GRID
+        ========================= */
+
+        .reward-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+
+            padding-bottom: 70px;
+        }
+
+
+        /* =========================
+           REWARD CARD
+        ========================= */
+
+        .reward-card {
+            background: white;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+
+            transition: 0.3s;
+        }
+
+
+        .reward-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .reward-image {
+            width: 100%;
+            height: 210px;
+
+            background: #e8f3eb;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #888;
+
+            overflow: hidden;
+        }
+
+
+        .reward-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .reward-content {
+            padding: 20px;
+        }
+
+
+        .reward-content h3 {
+            font-size: 20px;
+
+            color: #176b36;
+
+            margin-bottom: 10px;
+        }
+
+
+        .reward-content p {
+            color: #666;
+
+            line-height: 1.6;
+
+            margin-bottom: 15px;
+
+            min-height: 50px;
+        }
+
+
+        /* =========================
+           POINT
+        ========================= */
+
+        .reward-point {
+            display: inline-block;
+
+            background: #fff3cd;
+
+            color: #9a7200;
+
+            padding: 8px 13px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           EXCHANGE BUTTON
+        ========================= */
+
+        .exchange-btn {
+            width: 100%;
+
+            border: none;
+
+            padding: 12px;
+
+            border-radius: 10px;
+
+            background: #176b36;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .exchange-btn:hover {
+            background: #0e4d25;
+        }
+
+
+        /* =========================
+           DISABLED BUTTON
+        ========================= */
+
+        .exchange-btn.disabled {
+            background: #aaa;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #176b36;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .reward-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            .menu {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 15px;
+            }
+
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+
+            .point-box {
+                padding: 20px;
+            }
+
+
+            .point-box h2 {
+                font-size: 30px;
+            }
+
+
+            .reward-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🌱 Green Points
+        </div>
+
+
+        <div class="menu">
+
+            <a href="home.html">
+                หน้าหลัก
+            </a>
+
+
+            <a href="points.html">
+                สะสมแต้ม
+            </a>
+
+
+            <a href="reward.html" class="active">
+                แลกของรางวัล
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <section class="header">
+
+        <h1>
+            🎁 แลกของรางวัล
+        </h1>
+
+
+        <p>
+            ใช้แต้มที่สะสมจากการเก็บขยะ
+            แลกของรางวัลที่คุณต้องการ
+        </p>
+
+    </section>
+
+
+
+    <main class="container">
+
+
+        <!-- =========================
+             CURRENT POINT
+        ========================= -->
+
+        <div class="point-box">
+
+            <div class="point-icon">
+                ⭐
+            </div>
+
+
+            <div>
+
+                <p>
+                    แต้มสะสมของคุณ
+                </p>
+
+
+                <h2>
+                    1,250
+                    <span>แต้ม</span>
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             REWARD
+        ========================= -->
+
+        <h2 class="section-title">
+            🎁 เลือกของรางวัลที่ต้องการ
+        </h2>
+
+
+        <div class="reward-grid">
+
+
+            <!-- =========================
+                 REWARD 1
+            ========================= -->
+
+            <div class="reward-card">
+
+
+                <div class="reward-image">
+
+                    <!-- ใส่รูปของรางวัลตรงนี้ -->
+
+                    <span>
+                        ใส่รูปแก้วน้ำ
+                    </span>
+
+                </div>
+
+
+                <div class="reward-content">
+
+                    <h3>
+                        แก้วน้ำรักษ์โลก
+                    </h3>
+
+
+                    <p>
+                        แก้วน้ำใช้ซ้ำ
+                        ช่วยลดการใช้พลาสติก
+                    </p>
+
+
+                    <div class="reward-point">
+                        ⭐ 500 แต้ม
+                    </div>
+
+
+                    <button class="exchange-btn">
+                        แลกของรางวัล
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 REWARD 2
+            ========================= -->
+
+            <div class="reward-card">
+
+
+                <div class="reward-image">
+
+                    <!-- ใส่รูปของรางวัลตรงนี้ -->
+
+                    <span>
+                        ใส่รูปถุงผ้า
+                    </span>
+
+                </div>
+
+
+                <div class="reward-content">
+
+                    <h3>
+                        ถุงผ้ารักษ์โลก
+                    </h3>
+
+
+                    <p>
+                        ถุงผ้าสำหรับใช้ในชีวิตประจำวัน
+                    </p>
+
+
+                    <div class="reward-point">
+                        ⭐ 800 แต้ม
+                    </div>
+
+
+                    <button class="exchange-btn">
+                        แลกของรางวัล
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 REWARD 3
+            ========================= -->
+
+            <div class="reward-card">
+
+
+                <div class="reward-image">
+
+                    <!-- ใส่รูปของรางวัลตรงนี้ -->
+
+                    <span>
+                        ใส่รูปกระบอกน้ำ
+                    </span>
+
+                </div>
+
+
+                <div class="reward-content">
+
+                    <h3>
+                        กระบอกน้ำ
+                    </h3>
+
+
+                    <p>
+                        กระบอกน้ำสำหรับพกพา
+                        ใช้งานได้ทุกวัน
+                    </p>
+
+
+                    <div class="reward-point">
+                        ⭐ 1,000 แต้ม
+                    </div>
+
+
+                    <button class="exchange-btn">
+                        แลกของรางวัล
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 REWARD 4
+            ========================= -->
+
+            <div class="reward-card">
+
+
+                <div class="reward-image">
+
+                    <!-- ใส่รูปของรางวัลตรงนี้ -->
+
+                    <span>
+                        ใส่รูปคูปอง
+                    </span>
+
+                </div>
+
+
+                <div class="reward-content">
+
+                    <h3>
+                        คูปองส่วนลด
+                    </h3>
+
+
+                    <p>
+                        คูปองส่วนลดจากร้านค้าที่ร่วมรายการ
+                    </p>
+
+
+                    <div class="reward-point">
+                        ⭐ 1,500 แต้ม
+                    </div>
+
+
+                    <button class="exchange-btn disabled">
+                        แต้มไม่เพียงพอ
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 REWARD 5
+            ========================= -->
+
+            <div class="reward-card">
+
+
+                <div class="reward-image">
+
+                    <!-- ใส่รูปของรางวัลตรงนี้ -->
+
+                    <span>
+                        ใส่รูปสมุด
+                    </span>
+
+                </div>
+
+
+                <div class="reward-content">
+
+                    <h3>
+                        สมุดรีไซเคิล
+                    </h3>
+
+
+                    <p>
+                        สมุดทำจากกระดาษรีไซเคิล
+                    </p>
+
+
+                    <div class="reward-point">
+                        ⭐ 300 แต้ม
+                    </div>
+
+
+                    <button class="exchange-btn">
+                        แลกของรางวัล
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 REWARD 6
+            ========================= -->
+
+            <div class="reward-card">
+
+
+                <div class="reward-image">
+
+                    <!-- ใส่รูปของรางวัลตรงนี้ -->
+
+                    <span>
+                        ใส่รูปปากกา
+                    </span>
+
+                </div>
+
+
+                <div class="reward-content">
+
+                    <h3>
+                        ปากการีไซเคิล
+                    </h3>
+
+
+                    <p>
+                        ปากกาที่ผลิตจากวัสดุรีไซเคิล
+                    </p>
+
+
+                    <div class="reward-point">
+                        ⭐ 200 แต้ม
+                    </div>
+
+
+                    <button class="exchange-btn">
+                        แลกของรางวัล
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 REWARD 7
+            ========================= -->
+
+            <div class="reward-card">
+
+
+                <div class="reward-image">
+
+                    <!-- ใส่รูปของรางวัลตรงนี้ -->
+
+                    <span>
+                        ใส่รูปต้นไม้
+                    </span>
+
+                </div>
+
+
+                <div class="reward-content">
+
+                    <h3>
+                        ต้นไม้ขนาดเล็ก
+                    </h3>
+
+
+                    <p>
+                        ต้นไม้สำหรับปลูกตกแต่งบ้าน
+                    </p>
+
+
+                    <div class="reward-point">
+                        ⭐ 700 แต้ม
+                    </div>
+
+
+                    <button class="exchange-btn">
+                        แลกของรางวัล
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 REWARD 8
+            ========================= -->
+
+            <div class="reward-card">
+
+
+                <div class="reward-image">
+
+                    <!-- ใส่รูปของรางวัลตรงนี้ -->
+
+                    <span>
+                        ใส่รูปชุดของขวัญ
+                    </span>
+
+                </div>
+
+
+                <div class="reward-content">
+
+                    <h3>
+                        ชุดของขวัญรักษ์โลก
+                    </h3>
+
+
+                    <p>
+                        รวมของใช้รักษ์โลกสำหรับชีวิตประจำวัน
+                    </p>
+
+
+                    <div class="reward-point">
+                        ⭐ 2,000 แต้ม
+                    </div>
+
+
+                    <button class="exchange-btn disabled">
+                        แต้มไม่เพียงพอ
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        ♻️ Green Points
+
+        <br>
+
+        เปลี่ยนขยะให้มีคุณค่า
+        เพื่อโลกที่น่าอยู่ของเรา
+
+    </footer>
+
+
+</body>
+</html>
+
